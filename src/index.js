@@ -1,24 +1,23 @@
 import * as CRUD from './js/crud-productos';
-import { obtenerCategorias } from './js/http-provider';
-import {ProductoHtml} from './js/crud-productos';
+import { obtenerProductos } from './js/http-provider';
+import * as init from './js/producto-page';
 
 CRUD.obtenerProductos().then(console.log);
 CRUD.crearProducto({
     title: 'Nuevo producto',
     price: 500,
-    thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+    image: 'https://picsum.photos/50/100',
 }).then(console.log);
 
-CRUD.actualizarProducto(2, {
+CRUD.actualizarProducto(1, {
     title: 'Producto actualizado',
     price: 500,
-    thumbnail: 'https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png',
+    image: 'https://picsum.photos/50/100',
 }).then(console.log);
 
-CRUD.borrarProducto(2).then(console.log);
 
-export const init=async()=>{
-    const producto=await CRUD.obtenerProductos();
-    console.log(producto);
-    ProductoHtml();
-}
+CRUD.borrarProducto(2).then(console.log);
+   
+
+obtenerProductos().then(console.log);
+init.init();

@@ -1,20 +1,6 @@
+import '../styles.scss';
 
-import {ProductoHtml} from "./crud-productos";
 const urlProducts='https://fakestoreapi.com/products';
-
-// const ProductoHtml=async(product)=>{
-// const html=`
-// <div class="card">
-//     <img src="${product.image}" class="card-img-top" alt="...">
-//     <div class="card-body">
-//         <h5 class="card-title">${product.title}</h5>
-//         <p class="card-text">${product.description}</p>
-//         <p class="card-text">$${product.price}</p>
-//         <a href="#" class="btn btn-primary">Go somewhere</a>
-//     </div>
-// </div>
-// `;
-// }
 
 const obtenerCategorias=async()=>{
     const resp=await fetch(urlProducts);
@@ -54,14 +40,13 @@ const actualizarProducto=async(id,product)=>{
 
 const borrarProducto=async(id)=>{
     const resp=await fetch(`${urlProducts}/${id}`, {
-        method: 'DELETE',
+        method: 'DELETE',      
     });
-    return (resp.ok) ? 'Borrado' : 'No se pudo eliminar';
+    return await resp.json();
     }
 
 
 export{
-    ProductoHtml,
     crearProducto,
     actualizarProducto,
     borrarProducto,
