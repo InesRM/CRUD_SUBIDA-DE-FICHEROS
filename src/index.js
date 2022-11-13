@@ -2,6 +2,8 @@ import * as CRUD from './js/crud-productos';
 import { obtenerProductos } from './js/http-provider';
 import * as init from './js/producto-page';
 
+
+
 CRUD.obtenerProductos().then(console.log);
 CRUD.crearProducto({
     title: 'Nuevo producto',

@@ -1,12 +1,12 @@
-import {actualizarProducto} from './crud-productos';
-import { obtenerProductos } from "./crud-productos";
-import { borrarProducto } from "./crud-productos";
-const body =document.body;
-let tBody;
-let num=0;
 
-const crearHtml=()=>{
-    const html=`
+import { obtenerProductos } from "./crud-productos";
+
+const body = document.body;
+let tBody;
+let num = 0;
+
+const crearHtml = () => {
+    const html = `
     <h1 class="mt-5">CRUD - API</h1>
     <hr>
     <table class="table">
@@ -23,14 +23,14 @@ const crearHtml=()=>{
         </tbody>
     </table>
     `;
-    const div=document.createElement('div');
-    div.innerHTML=html;
+    const div = document.createElement('div');
+    div.innerHTML = html;
     body.append(div);
-    tBody=document.querySelector('tbody');
+    tBody = document.querySelector('tbody');
 }
 
-const crearFilaProducto=(producto)=>{
-    const html=`
+const crearFilaProducto = (producto) => {
+    const html = `
     <th scope="row">${num}</th>
     <td>${producto.title}</td>
     <td>${producto.price}</td>
@@ -40,13 +40,13 @@ const crearFilaProducto=(producto)=>{
         <button class="btn btn-danger">Borrar</button>
     </td>
     `;
-    const tr=document.createElement('tr');
-    tr.innerHTML=html;
+    const tr = document.createElement('tr');
+    tr.innerHTML = html;
     tBody.appendChild(tr);
 }
-export const init=async()=>{
+export const init = async () => {
     crearHtml();
-    const productos=await obtenerProductos();
+    const productos = await obtenerProductos();
     productos.forEach(producto => {
         num++;
         crearFilaProducto(producto);

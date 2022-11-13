@@ -45,6 +45,14 @@ const borrarProducto=async(id)=>{
     return await resp.json();
     }
 
+    let btnEditar = document.getElementById("editar")
+    let btnBorrar = document.getElementById("borrar")
+    // btnBorrar.addEventListener('onclick',()=>{
+    //     borrarProducto(id).then(console.log);
+    // })
+    // btnEditar.addEventListener('onclick',()=>{
+    //     actualizarProducto(id,producto).then(console.log);
+    // })
 
 export{
     crearProducto,
