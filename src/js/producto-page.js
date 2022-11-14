@@ -28,7 +28,7 @@ const crearHtml = () => {
     body.append(div);
     tBody = document.querySelector('tbody');
 }
-
+//Los botones no tienen funcionalidad, aún....
 const crearFilaProducto = (producto) => {
     const html = `
     <th scope="row">${num}</th>
@@ -36,8 +36,8 @@ const crearFilaProducto = (producto) => {
     <td>${producto.price}</td>
     <td><img src="${producto.image}" class="img-thumbnail"></td>
     <td>
-        <button class="btn btn-primary">Editar</button> 
-        <button class="btn btn-danger">Borrar</button>
+        <button class="editar">Editar</button> 
+        <button class="borrar">Borrar</button>
     </td>
     `;
     const tr = document.createElement('tr');
@@ -51,6 +51,7 @@ export const init = async () => {
         num++;
         crearFilaProducto(producto);
     });
+
 }
 
 
